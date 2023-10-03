@@ -1,6 +1,7 @@
 /*
 When setting status levels use the following:
-1 - Everything is good
+0 - Everything is good, no recent maintenance
+1 - Maintenance has been completed, everything should be back up. Generic troubleshooting.
 2 - System(s) operational, limited functionality
 3 - System(s) experiencing major issues
 */
@@ -24,9 +25,16 @@ const outlookStatusDiv = document.querySelector(".Outlook");
 let refreshTime = getCurrentTime();
 
 /* Set colors/status message for overall status */
-if (OVERALL_STATUS == 1) {
+if (OVERALL_STATUS == 0) {
     overallStatusDiv.style.backgroundColor = GREEN;
     statusDetailMessageDiv.innerHTML += `Last refresh: ${refreshTime}`;
+}
+else if (OVERALL_STATUS == 1) {
+    overallStatusDiv.style.backgroundColor = GREEN;
+    overallStatusDiv.innerHTML = "Maintenance Complete";
+    statusDetailMessageDiv.innerHTML = "Maintenance is complete, if you are still experiencing issues you may need to reboot your computer and/or Citrix session."
+    statusDetailMessageDiv.innerHTML += "<br><br>Please refresh this page to re-check status.";
+    statusDetailMessageDiv.innerHTML += `<br><br>Last refresh ${refreshTime}`;
 }
 else if (OVERALL_STATUS == 2) {
     overallStatusDiv.style.backgroundColor = YELLOW;
