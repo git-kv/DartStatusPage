@@ -87,6 +87,14 @@ details {
     color: #e0455e;
 }
 
+.low-impact {
+    color: #3BA55C;
+}
+
+.user-impact {
+    margin-left: 15px;
+}
+
 summary {
     display: flex;
     justify-content: space-between;
