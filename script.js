@@ -7,6 +7,8 @@ When setting OVERALL_STATUS levels use the following:
 2 - System(s) operational, limited functionality
 3 - System(s) experiencing major issues
 
+For individual system statuses only the values 1, 2, or 3 are used.
+
 OVERALL_STATUS_TEXT and OVERALL_STATUS_NOTES are only utilized if 
 OVERALL_STATUS is set to 2 or 3
 */
