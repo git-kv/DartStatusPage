@@ -5,8 +5,8 @@ When setting status levels use the following:
 3 - System(s) experiencing major issues
 */
 const OVERALL_STATUS_TEXT = "Degraded Citrix Service";
-const OVERALL_STATUS_NOTES = "Users may be unable to connect to their Citrix desktops remotely. Connecting in one of our office locations still works. We are working with Citrix to resolve this issue and will update as we know more.";
-const OVERALL_STATUS = 1;
+const OVERALL_STATUS_NOTES = "We are performing maintenance on our storage solution. During this time Citrix access is unavailable. You can still access your Dart email by logging into the web version of Outlook.<br><br>If you are using one of the kiosk PCs in our offices you can click Tools -> Maintenance Resources at the top left of the kiosk screen to open a browser to access OWA and this System Status page.<br><br>If you are not using one of our kiosk PCs the URLs for OWA and the system status page are:<br><br>https://outlook.office365.com<br>https://wwwb.dartadvantage.com/systemStatus/status.html";
+const OVERALL_STATUS = 3;
 const CITRIX_STATUS = 1;
 const MITEL_STATUS = 1;
 const OUTLOOK_STATUS = 1;
