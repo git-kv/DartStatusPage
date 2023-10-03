@@ -1,9 +1,14 @@
 /*
-When setting status levels use the following:
+When setting OVERALL_STATUS levels use the following:
 0 - Everything is good, no recent maintenance
-1 - Maintenance has been completed, everything should be back up. Generic troubleshooting.
+1 - Maintenance has been completed, everything should be back up. Generic
+    troubleshooting notes. Change to 0 the day after maintenance has been
+    completed.
 2 - System(s) operational, limited functionality
 3 - System(s) experiencing major issues
+
+OVERALL_STATUS_TEXT and OVERALL_STATUS_NOTES are only utilized if 
+OVERALL_STATUS is set to 2 or 3
 */
 const OVERALL_STATUS_TEXT = "SAN Maintenance";
 const OVERALL_STATUS_NOTES = "We are performing maintenance on our storage solution. During this time Citrix access is unavailable. You can still access your Dart email by logging into the web version of Outlook.<br><br>If you are using one of the kiosk PCs in our offices you can click Tools -> Maintenance Resources at the top left of the kiosk screen to open a browser to access OWA and this System Status page.<br><br>If you are not using one of our kiosk PCs the URLs for OWA and the system status page are:<br><br><a href=https://outlook.office365.com target=_blank>https://outlook.office365.com</a><br><br><a href=https://wwwb.dartadvantage.com/systemStatus/status.html>https://wwwb.dartadvantage.com/systemStatus/status.html</a>";
