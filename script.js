@@ -42,8 +42,8 @@ else {
     statusDetailMessageDiv.innerHTML += "<br><br>Please refresh this page to re-check status.";
     statusDetailMessageDiv.innerHTML += `<br><br>Last refresh: ${refreshTime}`;
 }
-/**/
-/* Set color for Citrix status */
+/**
+/* Set color for Citrix status *
 if (CITRIX_STATUS == 1) {
     citrixStatusDiv.style.borderLeftColor = GREEN;
 }
@@ -54,7 +54,7 @@ else {
     citrixStatusDiv.style.borderLeftColor = RED;
 }
 
-/* Set color for Mitel status */
+/* Set color for Mitel status *
 if (MITEL_STATUS == 1) {
     mitelStatusDiv.style.borderLeftColor = GREEN;
 }
@@ -65,7 +65,7 @@ else {
     mitelStatusDiv.style.borderLeftColor = RED;
 }
 
-/* Set color for Outlook status */
+/* Set color for Outlook status *
 if (OUTLOOK_STATUS == 1) {
     outlookStatusDiv.style.borderLeftColor = GREEN;
 }
@@ -75,7 +75,7 @@ else if (OUTLOOK_STATUS == 2) {
 else {
     outlookStatusDiv.style.borderLeftColor = RED;
 }
-//*/
+*/
 function getCurrentTime() {
     let d = new Date();
     return d.toTimeString();
