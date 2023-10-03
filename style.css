@@ -58,6 +58,10 @@ body {
 
 details {
     font-size: 20px;
+    padding: 10px 10px 10px 10px;
+    margin: 10px 0px 10px 0px;
+    background-color: #cfcfcf;
+    border-radius: 6px;
 }
 
 .header {
@@ -77,4 +81,13 @@ details {
     border-radius: 6px;
     font-size: 25px;
     text-align: center;
+}
+
+.high-impact {
+    color: #e0455e;
+}
+
+summary {
+    display: flex;
+    justify-content: space-between;
 }
