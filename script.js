@@ -35,34 +35,39 @@ const statusDetailMessageDiv = document.querySelector(".message-details");
 const citrixStatusDiv = document.querySelector(".Citrix");
 const mitelStatusDiv = document.querySelector(".Mitel");
 const outlookStatusDiv = document.querySelector(".Outlook");
+let overallStatus;
+let overallStatusText;
+let overallStatusNotes;
 
-let refreshTime = getCurrentTime();
+
 
 /* Set colors/status message for overall status */
-if (OVERALL_STATUS == 0) {
-    overallStatusDiv.style.backgroundColor = GREEN;
-    statusDetailMessageDiv.innerHTML += `Last refresh: ${refreshTime}`;
-}
-else if (OVERALL_STATUS == 1) {
-    overallStatusDiv.style.backgroundColor = GREEN;
-    overallStatusDiv.innerHTML = "Maintenance Complete";
-    statusDetailMessageDiv.innerHTML = "Maintenance is complete, if you are still experiencing issues you may need to reboot your computer and/or Citrix session."
-    statusDetailMessageDiv.innerHTML += "<br><br>Please refresh this page to re-check status.";
-    statusDetailMessageDiv.innerHTML += `<br><br>Last refresh ${refreshTime}`;
-}
-else if (OVERALL_STATUS == 2) {
-    overallStatusDiv.style.backgroundColor = YELLOW;
-    overallStatusDiv.innerHTML = OVERALL_STATUS_TEXT;
-    statusDetailMessageDiv.innerHTML = OVERALL_STATUS_NOTES;
-    statusDetailMessageDiv.innerHTML += "<br><br>Please refresh this page to re-check status.";
-    statusDetailMessageDiv.innerHTML += `<br><br>Last refresh ${refreshTime}`;
-}
-else {
-    overallStatusDiv.style.backgroundColor = RED;
-    overallStatusDiv.innerHTML = OVERALL_STATUS_TEXT;
-    statusDetailMessageDiv.innerHTML = OVERALL_STATUS_NOTES;
-    statusDetailMessageDiv.innerHTML += "<br><br>Please refresh this page to re-check status.";
-    statusDetailMessageDiv.innerHTML += `<br><br>Last refresh: ${refreshTime}`;
+function updatePage() {
+    if (overallStatus == 0) {
+        overallStatusDiv.style.backgroundColor = GREEN;
+        statusDetailMessageDiv.innerHTML += `Last refresh: ${refreshTime}`;
+    }
+    else if (overallStatus == 1) {
+        overallStatusDiv.style.backgroundColor = GREEN;
+        overallStatusDiv.innerHTML = "Maintenance Complete";
+        statusDetailMessageDiv.innerHTML = "Maintenance is complete, if you are still experiencing issues you may need to reboot your computer and/or Citrix session."
+        statusDetailMessageDiv.innerHTML += "<br><br>Please refresh this page to re-check status.";
+        statusDetailMessageDiv.innerHTML += `<br><br>Last refresh ${refreshTime}`;
+    }
+    else if (overallStatus == 2) {
+        overallStatusDiv.style.backgroundColor = YELLOW;
+        overallStatusDiv.innerHTML = OVERALL_STATUS_TEXT;
+        statusDetailMessageDiv.innerHTML = OVERALL_STATUS_NOTES;
+        statusDetailMessageDiv.innerHTML += "<br><br>Please refresh this page to re-check status.";
+        statusDetailMessageDiv.innerHTML += `<br><br>Last refresh ${refreshTime}`;
+    }
+    else {
+        overallStatusDiv.style.backgroundColor = RED;
+        overallStatusDiv.innerHTML = OVERALL_STATUS_TEXT;
+        statusDetailMessageDiv.innerHTML = OVERALL_STATUS_NOTES;
+        statusDetailMessageDiv.innerHTML += "<br><br>Please refresh this page to re-check status.";
+        statusDetailMessageDiv.innerHTML += `<br><br>Last refresh: ${refreshTime}`;
+    }
 }
 /**
 /* Set color for Citrix status *
@@ -106,6 +111,8 @@ function getCurrentTime() {
 async function getStatusInfo() {
     const response = await fetch ("https://git-kv.github.io/DartStatusPage/status.json");
     const statusInfo = await response.json();
-    console.log(statusInfo);
-    console.log(statusInfo.overallStatusText);
+    overallStatus = statusInfo.overallStatus;
+    overallStatusText = statusInfo.overallStatusText;
+    overallStatusNotes = statusInfo.overallStatusNotes;
+    let refreshTime = getCurrentTime();
 }
