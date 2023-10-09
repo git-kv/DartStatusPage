@@ -38,6 +38,7 @@ const outlookStatusDiv = document.querySelector(".Outlook");
 let overallStatus;
 let overallStatusText;
 let overallStatusNotes;
+let refreshTime;
 
 
 
@@ -45,6 +46,7 @@ let overallStatusNotes;
 function updatePage() {
     if (overallStatus == 0) {
         overallStatusDiv.style.backgroundColor = GREEN;
+        overallStatusDiv.innerHTML = "All Systems Operational";
         statusDetailMessageDiv.innerHTML += `Last refresh: ${refreshTime}`;
     }
     else if (overallStatus == 1) {
@@ -56,15 +58,15 @@ function updatePage() {
     }
     else if (overallStatus == 2) {
         overallStatusDiv.style.backgroundColor = YELLOW;
-        overallStatusDiv.innerHTML = OVERALL_STATUS_TEXT;
-        statusDetailMessageDiv.innerHTML = OVERALL_STATUS_NOTES;
+        overallStatusDiv.innerHTML = overallStatusText;
+        statusDetailMessageDiv.innerHTML = overallStatusNotes;
         statusDetailMessageDiv.innerHTML += "<br><br>Please refresh this page to re-check status.";
         statusDetailMessageDiv.innerHTML += `<br><br>Last refresh ${refreshTime}`;
     }
     else {
         overallStatusDiv.style.backgroundColor = RED;
-        overallStatusDiv.innerHTML = OVERALL_STATUS_TEXT;
-        statusDetailMessageDiv.innerHTML = OVERALL_STATUS_NOTES;
+        overallStatusDiv.innerHTML = overallStatusText;
+        statusDetailMessageDiv.innerHTML = overallStatusNotes;
         statusDetailMessageDiv.innerHTML += "<br><br>Please refresh this page to re-check status.";
         statusDetailMessageDiv.innerHTML += `<br><br>Last refresh: ${refreshTime}`;
     }
@@ -111,8 +113,10 @@ function getCurrentTime() {
 async function getStatusInfo() {
     const response = await fetch ("https://git-kv.github.io/DartStatusPage/status.json");
     const statusInfo = await response.json();
+    console.log(statusInfo);
     overallStatus = statusInfo.overallStatus;
     overallStatusText = statusInfo.overallStatusText;
     overallStatusNotes = statusInfo.overallStatusNotes;
-    let refreshTime = getCurrentTime();
+    refreshTime = getCurrentTime();
+    updatePage();
 }
