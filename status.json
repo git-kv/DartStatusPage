@@ -1,5 +1,5 @@
 {
-    "overallStatusText":"",
-    "overalStatusNotes":"",
-    "overallStatus":"0"
+    "overallStatusText": "Overall status text.",
+    "overallStatusNotes": "Overall status notes.",
+    "overallStatus": "0"
 }

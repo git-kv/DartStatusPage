@@ -22,11 +22,9 @@ const OVERALL_STATUS = 0;
 const CITRIX_STATUS = 1;
 const MITEL_STATUS = 1;
 const OUTLOOK_STATUS = 1;
+let statusInfo;
 
-const response = await fetch ("https://git-kv.github.io/DartStatusPage/status.json");
-const statusJSON = await response.json();
-console.log(statusJSON);
-
+getStatusInfo();
 
 /* DO NOT EDIT BELOW THIS COMMENT ...unless you feel like it*/
 const GREEN = "#3BA55C";
@@ -103,4 +101,11 @@ else {
 function getCurrentTime() {
     let d = new Date();
     return d.toTimeString();
+}
+
+async function getStatusInfo() {
+    const response = await fetch ("https://git-kv.github.io/DartStatusPage/status.json");
+    const statusInfo = await response.json();
+    console.log(statusInfo);
+    console.log(statusInfo.overallStatusText);
 }
