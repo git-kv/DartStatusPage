@@ -14,7 +14,7 @@ OVERALL_STATUS is set to 2 or 3
 */
 const OVERALL_STATUS_TEXT = "Mitel Phone System Maintenance";
 const OVERALL_STATUS_NOTES = "We are performing maintenance on the Mitel phone system.<br><br>Mitel Connect and workgroup functionality will be working sporadically during the maintenance.<br><br>Max and ALTAM will be down for a short time.";
-const OVERALL_STATUS = 2;
+const OVERALL_STATUS = 0;
 const CITRIX_STATUS = 1;
 const MITEL_STATUS = 1;
 const OUTLOOK_STATUS = 1;
